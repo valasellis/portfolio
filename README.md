@@ -4,9 +4,9 @@ A modern, responsive web portfolio showcasing my projects and skills, built with
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-None-lightgrey)
-![Stars](https://img.shields.io/github/stars/dimitrisvalasellis/portfolio?style=social)
-![Forks](https://img.shields.io/github/forks/dimitrisvalasellis/portfolio?style=social)
-![Primary Language](https://img.shields.io/github/languages/top/dimitrisvalasellis/portfolio)
+![Stars](https://img.shields.io/github/stars/valasellis/portfolio?style=social)
+![Forks](https://img.shields.io/github/forks/valasellis/portfolio?style=social)
+![Primary Language](https://img.shields.io/github/languages/top/valasellis/portfolio)
 
 ![Project Preview Image](/portfolio.png)
 
