@@ -50,8 +50,8 @@ export default function ContactPage() {
     "Get in touch with Dimitris Valasellis — frontend developer passionate about creating modern web experiences.";
 
   const handleDiscordClick = () => {
-    navigator.clipboard.writeText("valasellisme").then(() => {
-      alert("Discord ID copied to clipboard: valasellisme");
+    navigator.clipboard.writeText("valas.me").then(() => {
+      alert("Discord ID copied to clipboard: valas.me");
     });
   };
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="[YOUR_SITE_URL]/contact" />
+        <link rel="canonical" href="https://portfolio-valasellis.vercel.app/contact" />
       </Head>
 
       <LoadingOverlay />
@@ -88,7 +88,7 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b pb-4">
                 <div className="flex items-center gap-3">
                   <span className="text-gray-800 font-medium">Discord</span>
-                  <span className="text-gray-500">@valasellisme</span>
+                  <span className="text-gray-500">@valas.me</span>
                 </div>
                 <button
                   onClick={handleDiscordClick}
