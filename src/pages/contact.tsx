@@ -2,15 +2,24 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
-function HomePage() {
+function ContactPage() { // Renamed from HomePage to ContactPage for clarity
   const [mounted, setMounted] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Menu State
 
   useEffect(() => {
     setMounted(true);
     const timer = setTimeout(() => setTextVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  // Helper function to close the menu on link click
+  const handleLinkClick = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
 
   return (
     <>
@@ -44,15 +53,33 @@ function HomePage() {
         .stagger-2 { animation-delay: 0.2s; opacity: 0; }
         .stagger-3 { animation-delay: 0.3s; opacity: 0; }
         .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+        /* Custom utility for the bar transition, applied to each span in the menu button */
+        .hamburger-bar {
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        /* Menu open state transformations */
+        .menu-open .bar-top {
+          transform: translateY(7px) rotate(45deg);
+        }
+        .menu-open .bar-middle {
+          opacity: 0;
+        }
+        .menu-open .bar-bottom {
+          transform: translateY(-7px) rotate(-45deg);
+        }
       `}</style>
 
       <div className="min-h-screen bg-white flex flex-col">
         {/* Minimal Header */}
         <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-            <Link href="/" className="font-semibold text-gray-900 hover:text-gray-600 transition-colors duration-200">
+            <Link href="/" onClick={handleLinkClick} className="font-semibold text-gray-900 hover:text-gray-600 transition-colors duration-200">
               DV
             </Link>
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200">
                 About
@@ -64,7 +91,51 @@ function HomePage() {
                 Contact
               </Link>
             </nav>
+
+            {/* Hamburger Button (Mobile) */}
+            <button
+              className={`md:hidden p-2 relative z-50 ${isMenuOpen ? 'menu-open' : ''}`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              <div className="flex flex-col justify-around h-5 w-6 cursor-pointer">
+                <span className="hamburger-bar bar-top block h-0.5 w-full bg-gray-900 rounded-sm"></span>
+                <span className="hamburger-bar bar-middle block h-0.5 w-full bg-gray-900 rounded-sm"></span>
+                <span className="hamburger-bar bar-bottom block h-0.5 w-full bg-gray-900 rounded-sm"></span>
+              </div>
+            </button>
           </div>
+          
+          {/* Mobile Menu Overlay */}
+          <nav
+            className={`md:hidden absolute top-16 left-0 w-full bg-white transition-all duration-300 ease-in-out overflow-hidden ${
+              isMenuOpen ? 'max-h-screen border-t border-gray-100' : 'max-h-0'
+            }`}
+          >
+            <div className="flex flex-col p-6 space-y-4">
+              <Link
+                href="/about"
+                onClick={handleLinkClick}
+                className="text-lg font-medium text-gray-800 hover:text-gray-600 transition-colors duration-200 py-2 border-b border-gray-100"
+              >
+                About
+              </Link>
+              <Link
+                href="/projects"
+                onClick={handleLinkClick}
+                className="text-lg font-medium text-gray-800 hover:text-gray-600 transition-colors duration-200 py-2 border-b border-gray-100"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/contact"
+                onClick={handleLinkClick}
+                className="text-lg font-medium text-gray-800 hover:text-gray-600 transition-colors duration-200 py-2"
+              >
+                Contact
+              </Link>
+            </div>
+          </nav>
         </header>
 
         {/* Main Content: Direct Contact CTA */}
@@ -131,4 +202,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ContactPage;
