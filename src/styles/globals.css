@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "./animations.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Ubuntu", "Inter", "Segoe UI", "Arial", sans-serif;
+}
+
+/* Prevent horizontal overflow site-wide */
+html,
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Make images and svgs responsive to their containers */
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hide system cursor everywhere, always show custom cursor */
+*,
+*:hover,
+*:active,
+*:focus {
+  cursor: none !important;
+}
+
+/* Custom Cursor Styles */
+#custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.18), 0 1.5px 6px 0 rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%) scale(1);
+  transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    border 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: difference;
+  opacity: 1;
+  will-change: transform, opacity;
+  pointer-events: none;
+  user-select: none;
+}
+
+#custom-cursor.custom-cursor-hover {
+  background: rgba(255, 255, 255, 0.25);
+  border: 2.5px solid #fff;
+  box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.22), 0 2px 8px 0 rgba(0, 0, 0, 0.13);
+  transform: translate(-50%, -50%) scale(1.35);
+  opacity: 0.85;
+}
