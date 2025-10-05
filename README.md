@@ -70,44 +70,6 @@ npm run build
 ```
 
 
-## 💡 Usage Examples
-
-This repository serves as the codebase for my personal portfolio website, accessible live at [https://portfolio-valasellis.vercel.app](https://portfolio-valasellis.vercel.app).
-
-To explore the application:
-
-**Visit the Live Site**: Navigate to [https://portfolio-valasellis.vercel.app](https://portfolio-valasellis.vercel.app) in your web browser to view the deployed portfolio.
-
-The project structure is typical for a Next.js application:
-
-```
-portfolio/
-├── public/                  # Static assets (images, fonts)
-├── src/                     # Source code
-│   ├── app/                 # Next.js App Router pages
-│   ├── components/          # Reusable React components
-│   ├── styles/              # Global styles
-│   └── lib/                 # Utility functions or API integrations
-├── eslint.config.mjs        # ESLint configuration
-├── next-env.d.ts            # Next.js environment types
-├── next.config.ts           # Next.js configuration
-├── package.json             # Project dependencies and scripts
-├── postcss.config.mjs       # PostCSS configuration
-├── tailwind.config.js       # Tailwind CSS configuration
-└── tsconfig.json            # TypeScript configuration
-```
-
-## 🛣️ Project Roadmap
-
-My portfolio is a living project, and I have several enhancements planned for the future:
-
-*   **Version 1.1.0**: Implement a dedicated blog section for technical articles and insights.
-*   **Version 1.2.0**: Integrate a dark mode toggle for enhanced user preference and accessibility.
-*   **Future Enhancement**: Add more interactive elements to project showcases, such as 3D models or embedded demos.
-*   **Future Enhancement**: Enhance SEO and accessibility features to reach a broader audience and comply with best practices.
-*   **Future Enhancement**: Implement CI/CD pipelines for automated testing and deployment.
-
-
 This project is currently **not licensed** under an open-source license. All rights are reserved by the author.
 
 © 2025 Dimitris Valasellis. All rights reserved.
